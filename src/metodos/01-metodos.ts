@@ -1,6 +1,4 @@
-// Métodos
 import { dataPersona } from '../datasource/dataIPersona'
-
 export interface IPersona {
     id: number,
     name: string,
@@ -8,7 +6,13 @@ export interface IPersona {
     phone?: string
 }
 
-class MiClase {
+export class MiClase {
 
-    dataPersona: IPersona[] = dataPersona; 
+    private dataPersona: IPersona[] = dataPersona;
+
+    mostrarValoresArrayPersona(){
+        // find: buscar de acuerdo a un criterio.
+        // El criterio depende de los atributos de los objetos del array
+        
+    }
 }

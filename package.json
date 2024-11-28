@@ -6,6 +6,7 @@
     "intro": "ts-node 01-introduccion.ts",
     "interfaz": "ts-node 02-ejercicios-interfaces.ts",
     "tarea-interfaz": "ts-node src/interfaces/04-ejercicios-interfaces-tarea.ts",
+    "main": "ts-node src/main.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

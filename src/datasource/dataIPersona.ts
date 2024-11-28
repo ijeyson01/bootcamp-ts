@@ -31,4 +31,4 @@ export const dataPersona = [
     }
 ]
 
- const saludo: string = '';
+const saludo: string = '';
