@@ -8,17 +8,23 @@ interface IPeticionEstudiante {
     datosPeticion: any
 }
 
-/* 
-{
-    "identificacion": "EC123001"
+
+
+interface IRespuestaEstudiante {
+    codigoRespuesta: string,
+    bodyRespuesta: any
 }
-*/
 
 export class EstudiantesxValidaciones {
     
     private lEstudiantes: IEstudiante[] = listaEstudiantes;
-
-    findEstudiantesByIdentificacion = (peticionEstudiante : IPeticionEstudiante): any =>{
+    /* 
+    Contenido de dataPeticion para buscar por identificacion
+    {
+        "identificacion": "EC123001"
+    }
+    */
+    findEstudiantesByIdentificacion = (peticionEstudiante : IPeticionEstudiante): IRespuestaEstudiante => {
         console.log(`El usuario ${peticionEstudiante.usuario} desde la IP ${peticionEstudiante.ip} usa buscar estudiante por identificacion`);
         
         let dataIdentificacion = peticionEstudiante.datosPeticion;
@@ -28,16 +34,41 @@ export class EstudiantesxValidaciones {
         if(estudianteByIdentificacion === undefined) {
             return {
                 codigoRespuesta: 'ER001',
-                bodyRespuesta: {
-                    data: 'No hay registro de un estudiante con la identificacion ingresada'
-                }
+                bodyRespuesta: 'No hay registro de un estudiante con la identificacion ingresada'
             }
         } else {
             return {
                 codigoRespuesta: 'OK001',
-                bodyRespuesta: {
-                    data: estudianteByIdentificacion
-                }
+                bodyRespuesta:  estudianteByIdentificacion
+            }
+        }
+    }
+    /* 
+    Contenido de dataPeticion para buscar por curso
+    {
+        "curso": "Primero"
+    }
+    */
+    findEstudiantesByCurso = (peticionEstudiante: IPeticionEstudiante): IRespuestaEstudiante => {
+        console.log(`El usuario ${peticionEstudiante.usuario} desde la IP ${peticionEstudiante.ip} usa buscar estudiantes por curso`);
+
+        let dataCurso = peticionEstudiante.datosPeticion; 
+
+        let estudiantesByCurso: IEstudiante[] = this.lEstudiantes.filter( estudiante => {
+            if( estudiante.curso == dataCurso.curso) {
+                return estudiante;
+            }
+        });
+
+        if(estudiantesByCurso.length === 0){
+            return {
+                codigoRespuesta: 'ER002',
+                bodyRespuesta: 'No hay estudiantes para el curso ingresado'
+            }
+        } else {
+            return {
+                codigoRespuesta: 'OK001',
+                bodyRespuesta: estudiantesByCurso
             }
         }
     }
