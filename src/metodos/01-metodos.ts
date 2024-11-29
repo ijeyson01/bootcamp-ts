@@ -1,4 +1,4 @@
-import { dataPersona } from '../datasource/dataIPersona'
+import { dataPersona } from '../datasource/dataipersona'
 export interface IPersona {
     id: number,
     name: string,
@@ -27,7 +27,7 @@ export class MiClase {
         // filter: busca varios objectos de acuerdo a un criterio.
         // El criterio depende de los atributos de los objetos del array
         // El criterio compara valores y devuelve un grupo de objetos o un array vacio []
-        let personaByfilter: IPersona[] = dataPersona.filter( persona => 
+        let personaByfilter: IPersona[] = dataPersona.filter( persona => // funcion lambda 
             (persona.age >= minorAge && persona.age <= maxAge));
         console.log(`Personas: ${JSON.stringify(personaByfilter)}`);
     }

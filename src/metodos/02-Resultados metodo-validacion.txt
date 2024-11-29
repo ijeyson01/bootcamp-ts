@@ -1,0 +1,20 @@
+{
+    "codigoRespuesta": "OK001",
+    "bodyRespuesta": {
+        "data": {
+            "id": 1,
+            "identificacion": "EC123001",
+            "nombre": "Jeyson",
+            "apellido": "Jaramillo",
+            "curso": "Primero",
+            "nota": 5
+        }
+    }
+}
+
+{
+    "codigoRespuesta": "ER001",
+    "bodyRespuesta": {
+        "data": "No hay registro de un estudiante con la identificacion ingresada"
+    }
+}

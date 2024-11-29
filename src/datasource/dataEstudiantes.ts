@@ -1,4 +1,4 @@
-let listaEstudiantes = [
+export let listaEstudiantes = [
     {
       id: 1,
       identificacion: 'EC123001',
