@@ -14,7 +14,7 @@ let estudiantexValidacionObjeto: EstudiantesxValidaciones = new EstudiantesxVali
 let datosEstudiante = estudiantexValidacionObjeto.findEstudiantesByIdentificacion(jsonPeticionEstudiante);
 
 console.log(JSON.stringify(datosEstudiante)); */
-
+/*
 let jsonPeticionEstudiantesByCurso = {
     usuario: 'jjaramillo',
     ip: '0.0.0.0',
@@ -25,4 +25,14 @@ let jsonPeticionEstudiantesByCurso = {
 
 let estudiantesByCurso = estudiantexValidacionObjeto.findEstudiantesByCurso(jsonPeticionEstudiantesByCurso);
 
-console.log(JSON.stringify(estudiantesByCurso));
+console.log(JSON.stringify(estudiantesByCurso));*/
+
+let jsonPeticionEstudiantesByCurso = {
+    usuario: 'jjaramillo',
+    ip: '0.0.0.0',
+    datosPeticion: {
+        nombre: 'j'
+    }
+}
+//console.log(jsonPeticionEstudiantesByCurso.datosPeticion.nombre);
+console.log(estudiantexValidacionObjeto.findByNombre(jsonPeticionEstudiantesByCurso));

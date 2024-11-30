@@ -58,7 +58,7 @@ console.log(personaEjemplo);
 
 // ESTRUCTURACIÓN: INICIALIZAR UN OBJETO CON VALORES INDEPENDIENTES
 // FUNCIÓN QUE CONSTRUYE UN OBJETO PERSONA, DE LA INTERFAZ PERSONA
-function definePersona(dataNombres : any, dataInformacionGeneral: any): Persona {
+const definePersona = (dataNombres : any, dataInformacionGeneral: any): Persona => {
     let [ nombres, apellidos ] = [dataNombres.nombres , dataNombres.apellidos];
 
     let nuevaPersona: Persona = {

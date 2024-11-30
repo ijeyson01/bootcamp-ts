@@ -1,4 +1,4 @@
-import { listaEstudiantes } from "../datasource/dataEstudiantes";
+import { listaEstudiantes } from "../datasource/dataestudiantes";
 import { IEstudiante } from "../global/iestudiante";
 
 
@@ -32,15 +32,9 @@ export class EstudiantesxValidaciones {
             estudiante.identificacion === dataIdentificacion.identificacion);
         
         if(estudianteByIdentificacion === undefined) {
-            return {
-                codigoRespuesta: 'ER001',
-                bodyRespuesta: 'No hay registro de un estudiante con la identificacion ingresada'
-            }
+            return FIND_BY_IDENTIFICATION_NOT_FOUND;
         } else {
-            return {
-                codigoRespuesta: 'OK001',
-                bodyRespuesta:  estudianteByIdentificacion
-            }
+            return responseSuccefull(estudianteByIdentificacion);
         }
     }
     /* 
@@ -53,23 +47,43 @@ export class EstudiantesxValidaciones {
         console.log(`El usuario ${peticionEstudiante.usuario} desde la IP ${peticionEstudiante.ip} usa buscar estudiantes por curso`);
 
         let dataCurso = peticionEstudiante.datosPeticion; 
-
         let estudiantesByCurso: IEstudiante[] = this.lEstudiantes.filter( estudiante => {
             if( estudiante.curso == dataCurso.curso) {
                 return estudiante;
             }
         });
-
         if(estudiantesByCurso.length === 0){
-            return {
-                codigoRespuesta: 'ER002',
-                bodyRespuesta: 'No hay estudiantes para el curso ingresado'
-            }
+            return FIND_BY_COURSE_EMPTY
         } else {
-            return {
-                codigoRespuesta: 'OK001',
-                bodyRespuesta: estudiantesByCurso
-            }
+            return responseSuccefull(estudiantesByCurso);
+        }
+    }
+
+    /*
+{
+   "nombre": ""    
+}
+     */
+    findByNombre = (peticionEstudiante: IPeticionEstudiante): IRespuestaEstudiante => {
+        console.log(`El usuario ${peticionEstudiante.usuario} desde la IP ${peticionEstudiante.ip} usa buscar estudiantes por nombre`);
+
+        let dataNombre = peticionEstudiante.datosPeticion;
+        if(!dataNombre.nombre) { // dataNombre.nombre === undefined | dataNombre.nombre === null | dataNombre.nombre === ''
+            return ERROR_REQUEST
+        }
+        
+        let nombreIngresado: string = String(dataNombre.nombre);
+        if(nombreIngresado.trim().length === 0) {
+            return TEXT_NOT_FOUND
+        }
+
+       
+        let estudiantesPorNombre = this.lEstudiantes.filter( estudiante => estudiante.nombre.toLocaleLowerCase().includes(nombreIngresado.toLocaleLowerCase()));
+
+        if(estudiantesPorNombre.length === 0) {
+            return EMPTY_RESULT
+        } else {
+            return responseSuccefull(estudiantesPorNombre);
         }
     }
 
