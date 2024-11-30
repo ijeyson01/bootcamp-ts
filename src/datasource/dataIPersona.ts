@@ -33,6 +33,13 @@ export const dataPersona = [
         "name": "Pedro Sánchez",
         "age": 41,
         "phone": "+34 600 111 111"
+    },
+    {
+        "id": 6,
+        "identification":"EC124OXP",
+        "name": "Pedro Sinchez",
+        "age": 18,
+        "phone": "+34 600 111 111"
     }
 ]
 
