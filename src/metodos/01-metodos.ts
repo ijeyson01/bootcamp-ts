@@ -1,10 +1,5 @@
 import { dataPersona } from '../datasource/dataipersona'
-export interface IPersona {
-    id: number,
-    name: string,
-    age: number,
-    phone?: string
-}
+import { IPersona } from '../global/ipersona';
 
 export class MiClase {
 

@@ -1,19 +1,9 @@
 import { listaEstudiantes } from "../datasource/dataestudiantes";
 import { IEstudiante } from "../global/iestudiante";
+import { IPeticion } from "../global/irequest";
+import { IRespuesta } from "../global/iresponse";
 
 
-interface IPeticionEstudiante {
-    usuario: string,
-    ip: string,
-    datosPeticion: any
-}
-
-
-
-interface IRespuestaEstudiante {
-    codigoRespuesta: string,
-    bodyRespuesta: any
-}
 
 export class EstudiantesxValidaciones {
     
@@ -24,7 +14,7 @@ export class EstudiantesxValidaciones {
         "identificacion": "EC123001"
     }
     */
-    findEstudiantesByIdentificacion = (peticionEstudiante : IPeticionEstudiante): IRespuestaEstudiante => {
+    findEstudiantesByIdentificacion = (peticionEstudiante : IPeticion): IRespuesta => {
         console.log(`El usuario ${peticionEstudiante.usuario} desde la IP ${peticionEstudiante.ip} usa buscar estudiante por identificacion`);
         
         let dataIdentificacion = peticionEstudiante.datosPeticion;
@@ -43,7 +33,7 @@ export class EstudiantesxValidaciones {
         "curso": "Primero"
     }
     */
-    findEstudiantesByCurso = (peticionEstudiante: IPeticionEstudiante): IRespuestaEstudiante => {
+    findEstudiantesByCurso = (peticionEstudiante: IPeticion): IRespuesta => {
         console.log(`El usuario ${peticionEstudiante.usuario} desde la IP ${peticionEstudiante.ip} usa buscar estudiantes por curso`);
 
         let dataCurso = peticionEstudiante.datosPeticion; 
@@ -64,7 +54,7 @@ export class EstudiantesxValidaciones {
    "nombre": ""    
 }
      */
-    findByNombre = (peticionEstudiante: IPeticionEstudiante): IRespuestaEstudiante => {
+    findByNombre = (peticionEstudiante: IPeticion): IRespuesta => {
         console.log(`El usuario ${peticionEstudiante.usuario} desde la IP ${peticionEstudiante.ip} usa buscar estudiantes por nombre`);
 
         let dataNombre = peticionEstudiante.datosPeticion;

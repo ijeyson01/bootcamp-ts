@@ -1,30 +1,35 @@
 export const dataPersona = [
     {
         "id": 4,
+        "identification":"EC120ABC",
         "name": "Ana García",
         "age": 30,
         "phone": "+34 600 333 333"
     },
     {
         "id": 2,
+        "identification":"EC123XYZ",
         "name": "María López",
         "age": 34,
         "phone": "+34 600 987 654"
     },
     {
         "id": 1,
+        "identification":"ECABC098",
         "name": "Juan Perez",
         "age": 28,
         "phone": "+34 600 123 456"
     },
     {
         "id": 3,
+        "identification":"EC000111",
         "name": "Carlos Ruiz",
         "age": 45,
         "phone": "+34 600 555 555"
     },
     {
         "id": 5,
+        "identification":"EC124OXP",
         "name": "Pedro Sánchez",
         "age": 41,
         "phone": "+34 600 111 111"
