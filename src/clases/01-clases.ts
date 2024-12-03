@@ -26,10 +26,19 @@ export class MyClassPerson {
 
     // const objectMyClassPerson: MyClassPerson = new MyClassPerson('Jeyson', 'Jaramillo')
     constructor(
+        private identification: string,
         private name: string,
         private lastName: string,
         private birthDate?: string) { }
+    
+    getIdentification(){
+        return this.identification;
+    }
 
+    setIdentification(identification: string) {
+        this.identification = identification;
+    }
+    
     getName() { 
         return this.name; 
     }

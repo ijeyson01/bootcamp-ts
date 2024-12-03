@@ -5,9 +5,10 @@ export class Deportista extends MyClassPerson {
     constructor(
         private deporte: string, 
         private categoria: string, 
+        identification: string,
         name: string, 
         lastName: string){
-        super(name, lastName);
+        super(identification, name, lastName);
     }
 
     getDeporte () {
