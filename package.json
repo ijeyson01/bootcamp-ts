@@ -10,6 +10,7 @@
     "main-tarea": "ts-node src/main-tarea-metodos.ts",
     "main-valid": "ts-node src/main-validaciones.ts",
     "main-exception": "ts-node src/main-exceptions.ts",
+    "main-clase": "ts-node src/main-clase.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
